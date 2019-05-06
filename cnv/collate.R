@@ -16,7 +16,7 @@ read_cov$V5<-as.numeric(read_cov$V5)
 read_cov$V7<-read_cov[,"V3"]-read_cov[,"V2"]
 read_cov$V8<-libsize
 read_cov$V9<-(as.numeric(libsize)/1000000)
-read_cov$V10<-read_cov$V9/read_cov$V7
+read_cov$V10<-(read_cov$V5/read_cov$V9)/read_cov$V7
 read_cov$V11<-gsub("_.*","",basename(file_cov))
 colnames(read_cov)<-c("chr","start","stop","transcript","exon_number","coverage","length","libsize","scaling_factor","FPKM","Sample")
 
