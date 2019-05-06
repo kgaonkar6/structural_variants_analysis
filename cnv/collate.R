@@ -1,6 +1,4 @@
-library(ggplot2)
-library(plotly)
-library(ggforce)
+
 args<-commandArgs(TRUE)
 file_cov<-args[1]
 file_flagstat<-args[2]
