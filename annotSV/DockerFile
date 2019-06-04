@@ -45,5 +45,5 @@ RUN apt-get update && \
 
 
 RUN wget https://lbgi.fr/AnnotSV/Sources/AnnotSV_2.1.tar.gz
-RUN tar -jxvf AnnotSV_2.1.tar.gz
+RUN tar -xvf AnnotSV_2.1.tar.gz
 WORKDIR /opt/ANNOTSV/bin/AnnotSV -h  
