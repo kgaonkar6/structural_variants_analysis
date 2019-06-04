@@ -1,0 +1,49 @@
+FROM ubuntu:14.04
+
+MAINTAINER Krutika Gaonkar (gaonkark@email.chop.edu)
+
+# maintainer
+MAINTAINER Krutika Gaonkar
+
+RUN apt-get update && apt-get install -y \
+	tar \
+	tcl \
+	autoconf \
+	automake \
+	python2.7 \
+	python-pip \
+	make \
+	g++ \
+	gcc \
+	build-essential \ 
+	zlib1g-dev \
+	libgsl0-dev \
+	perl \
+	curl \
+	git \
+	wget \
+	unzip \
+	tabix \
+	bzip2 \
+	libncurses5-dev \
+	build-essential
+
+ARG PACKAGE_VERSION=2.27.1
+ARG BUILD_PACKAGES="git openssl python build-essential zlib1g-dev"
+ARG DEBIAN_FRONTEND=noninteractive
+
+WORKDIR /opt
+# Update the repository sources list
+RUN apt-get update && \
+    apt-get install --yes \
+              $BUILD_PACKAGES && \
+    cd /tmp && \
+    git clone https://github.com/arq5x/bedtools2.git && \
+    cd bedtools2 && \
+    git checkout v$PACKAGE_VERSION && \
+    make 
+
+
+RUN wget https://lbgi.fr/AnnotSV/Sources/AnnotSV_2.1.tar.gz
+RUN tar -jxvf AnnotSV_2.1.tar.gz
+WORKDIR /opt/ANNOTSV/bin/AnnotSV -h  
