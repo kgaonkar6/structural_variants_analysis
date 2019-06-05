@@ -35,7 +35,6 @@ ARG PACKAGE_VERSION=2.27.1
 WORKDIR /opt
 RUN git clone https://github.com/arq5x/bedtools2.git
 RUN cd bedtools2
-RUN git checkout v$PACKAGE_VERSION
 RUN make 
 
 WORKDIR /opt
