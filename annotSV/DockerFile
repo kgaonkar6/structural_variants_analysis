@@ -44,7 +44,7 @@ RUN apt-get update && \
     cd bedtools2 && \
     git checkout v$PACKAGE_VERSION && \
     make && \
-    mv bin/* /usr/local/bin && 
+    mv bin/* /usr/local/bin 
 
 
 WORKDIR /opt
